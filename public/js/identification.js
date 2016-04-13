@@ -8,6 +8,7 @@ function Identification (options) {
     
     _self.dataTypes = findDataTypes();
     
+    
 }
 
 var findDataTypes = function () {
