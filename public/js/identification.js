@@ -13,7 +13,7 @@ function Identification (options) {
 
 var findDataTypes = function () {
 
-    var isNumeric = {};
+    var dataTypes = {};
     
     var data = _self.data;
 
@@ -35,11 +35,36 @@ var findDataTypes = function () {
             } else {
 
                 isNumeric[key] = checkNumeric(value);
+                
+                if (checkNumeric(value) == true) {
+                    
+                    dataTypes[key] = "number";
+                    
+                } else {
+                    
+                    dataTypes[key] = "string";
+                    
+                }
             }
+            
+            if (key.toLowerCase().indexOf("date") >= 0) {
+                
+                isNumeric[key] = checkNumeric(value);
+                
+                dataTypes[key] = "date";
+                
+            } else if (key.toLowerCase().indexOf("time") 
+                       >= 0) {
+                
+                isNumeric[key] = checkNumeric(value);
+                
+                dataTypes[key] = "time";
+            }
+            
         }
     }
     
-    return isNumeric;
+    return dataTypes;
 }
 
 function checkNumeric(n) {
