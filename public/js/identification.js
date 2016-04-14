@@ -6,8 +6,11 @@ function Identification(options) {
 
     _self.data = options.data;
 
-    _self.dataTypes = findDataTypes();
+    _self.attributeMeta = findDataTypes();
 
+    _self.dataTypes = _self.attributeMeta.type;
+
+    _self.isNumeric = _self.attributeMeta.check;
 
 }
 
@@ -28,7 +31,8 @@ var findDataTypes = function () {
 
             var value = data[i][key];
 
-            if (value == "" || value == "NaN" || value == "undefined") {
+            if (value == "" || value == "NaN" ||
+                value == "undefined") {
 
                 continue;
 
