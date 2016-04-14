@@ -14,7 +14,7 @@ function Identification(options) {
 
 }
 
-var findDataTypes = function () {
+Identification.prototype.findDataTypes = function () {
 
     var dataTypes = {};
     var isNumeric = {};
